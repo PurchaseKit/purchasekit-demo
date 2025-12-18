@@ -1,0 +1,50 @@
+<% content_for :title, "Dashboard" %>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <h1 class="d-hotwire-native-none">Dashboard</h1>
+      <div class="d-flex justify-content-between align-items-center">
+        <% if authenticated? %>
+          <p class="lead my-0">Welcome, <%= Current.user.email_address %></p>
+        <% else %>
+          <p class="lead my-0">Welcome to PurchaseKit Example App</p>
+        <% end %>
+
+        <% if authenticated? %>
+          <%= button_to "Sign Out", session_path, method: :delete, data: {turbo_action: "replace"}, class: "btn btn-outline-secondary" %>
+        <% else %>
+          <%= link_to "Sign In", new_session_path, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
+      <% if authenticated? && authorized? %>
+        <div class="alert alert-light mt-4">
+          <i class="bi bi-check-circle-fill me-1"></i> You have an active subscription!
+        </div>
+      <% end %>
+
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Free Content</h5>
+              <p class="card-text">Access free content without a subscription.</p>
+              <%= link_to "View Free Content", free_path, class: "btn btn-outline-primary stretched-link" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mt-4 mt-md-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Premium Content</h5>
+              <p class="card-text">Subscribe to access premium features.</p>
+              <%= link_to "View Paid Content", paid_path, class: "btn btn-primary stretched-link" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

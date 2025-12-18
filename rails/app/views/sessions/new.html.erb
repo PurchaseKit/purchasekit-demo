@@ -1,0 +1,35 @@
+<% content_for :title, "Sign in" %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title d-hotwire-native-none mb-4">Sign in</h1>
+
+          <%= form_with url: session_path, data: {turbo_action: "replace"}, class: "" do |form| %>
+            <div class="mb-3">
+              <%= form.label :email_address, class: "form-label" %>
+              <%= form.email_field :email_address, class: "form-control", placeholder: "user@example.com", autofocus: true, value: "user@example.com" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :password, class: "form-label" %>
+              <%= form.password_field :password, class: "form-control", placeholder: "password", value: "password" %>
+            </div>
+
+            <div class="d-grid">
+              <%= form.submit "Sign in", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+
+          <% if Rails.env.development? %>
+            <div class="text-muted text-center small mt-3">
+              <p class="mb-0">Test credentials: <code>user@example.com</code> / <code>password</code></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

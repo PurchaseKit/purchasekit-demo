@@ -1,0 +1,13 @@
+# Build temp files
+DerivedData/
+Build/
+
+*.pbxuser
+*.perspective
+*.mode1v3
+*.mode2v3
+
+UserInterfaceState.xcuserstate
+Breakpoints.xcbkptlist
+IDEWorkspaceChecks.plist
+xcuserdata
