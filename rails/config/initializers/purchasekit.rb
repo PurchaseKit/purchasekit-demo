@@ -1,4 +1,6 @@
 PurchaseKit::Pay.configure do |config|
-  config.api_key = Rails.application.credentials.dig(:purchasekit, :api_key) || ENV["PURCHASEKIT_API_KEY"]
-  config.webhook_secret = Rails.application.credentials.dig(:purchasekit, :webhook_secret) || ENV["PURCHASEKIT_WEBHOOK_SECRET"]
+  config.api_url = Rails.application.credentials.purchasekit[:api_url]
+  config.api_key = Rails.application.credentials.purchasekit[:api_key]
+  config.app_id = Rails.application.credentials.purchasekit[:app_id]
+  config.webhook_secret = Rails.application.credentials.purchasekit[:webhook_secret]
 end
