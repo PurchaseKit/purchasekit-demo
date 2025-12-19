@@ -1,4 +1,4 @@
-<%= paywall.plan_option store_product_id: store_product_id, selected: local_assigns[:selected], input_class: "visually-hidden", class: "plan-card card p-3 h-100 text-start position-relative" do %>
+<%= paywall.plan_option product: product, selected: local_assigns[:selected], input_class: "visually-hidden", class: "plan-card card p-3 h-100 text-start position-relative" do %>
   <% if local_assigns[:badge].present? %>
     <span class="badge bg-primary position-absolute top-0 start-0 translate-middle-y ms-2"><%= badge %></span>
   <% end %>
@@ -9,7 +9,7 @@
   <div class="fw-semibold"><%= name %></div>
 
   <div class="fs-5 fw-bold">
-    <%= paywall.price store_product_id: store_product_id do %>
+    <%= paywall.price do %>
       <div class="spinner-border spinner-border-sm me-1" role="status">
         <span class="visually-hidden">Loading price...</span>
       </div>

@@ -12,7 +12,7 @@
           <div class="col-6">
             <%= render "plan_option",
               paywall: paywall,
-              store_product_id: "dev.purchasekit.pro.annual",
+              product: @annual,
               name: "Annual",
               period: "/yr",
               description: "Billed yearly",
@@ -24,7 +24,7 @@
           <div class="col-6">
             <%= render "plan_option",
               paywall: paywall,
-              store_product_id: "dev.purchasekit.pro.monthly",
+              product: @monthly,
               name: "Monthly",
               period: "/mo",
               description: "Billed monthly"

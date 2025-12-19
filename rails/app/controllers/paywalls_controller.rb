@@ -2,6 +2,8 @@ class PaywallsController < ApplicationController
   before_action :ensure_payment_processor
 
   def show
+    @annual = PurchaseKit::Product.find("prod_3VC24F5M")
+    @monthly = PurchaseKit::Product.find("prod_28VWPCQ7")
   end
 
   private
