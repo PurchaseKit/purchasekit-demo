@@ -1,3 +1,7 @@
+.max-w-narrow {
+  max-width: 450px;
+}
+
 .plan-card {
   cursor: pointer;
   transition: border-color 0.15s;

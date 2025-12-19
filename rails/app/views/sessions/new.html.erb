@@ -2,11 +2,11 @@
 
 <div class="container mt-5">
   <div class="row">
-    <div class="col-md-6 mx-auto">
+    <div class="max-w-narrow mx-auto">
+      <h1 class="card-title h3 d-hotwire-native-none text-center mb-4">Sign in to your account</h1>
+
       <div class="card">
         <div class="card-body">
-          <h1 class="card-title d-hotwire-native-none mb-4">Sign in</h1>
-
           <%= form_with url: session_path, data: {turbo_action: "replace"}, class: "" do |form| %>
             <div class="mb-3">
               <%= form.label :email_address, class: "form-label" %>
