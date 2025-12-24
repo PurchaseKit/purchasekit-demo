@@ -2,9 +2,9 @@ PATH
   remote: ../../gem
   specs:
     purchasekit-pay (0.1.0)
-      httparty
-      pay (>= 11.0)
-      rails (>= 7.0)
+      httparty (~> 0.22)
+      pay (~> 11.4)
+      rails (>= 7.0, < 9)
 
 GEM
   remote: https://rubygems.org/
@@ -296,7 +296,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jwt
-  pay (~> 11.0)
+  pay (~> 11.4)
   propshaft
   puma (>= 5.0)
   purchasekit-pay!

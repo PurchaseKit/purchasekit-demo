@@ -13,7 +13,7 @@ gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[windows jruby]
 
-gem "pay", "~> 11.0"
+gem "pay", "~> 11.4"
 gem "purchasekit-pay", path: "../../gem"
 
 group :development do
