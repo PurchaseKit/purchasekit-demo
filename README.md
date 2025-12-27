@@ -19,10 +19,10 @@ Open `ios/PurchaseKitDemo.xcodeproj` in Xcode and run on a simulator (Product â†
 ### 3. Test a purchase
 
 1. Sign in with `user@example.com` / `password`
-2. Tap "Go PRO" to see the paywall
+2. Tap "View Paid Content" to see the paywall
 3. Select a plan and tap Subscribe
 4. Complete the StoreKit test purchase
-5. See "You're subscribed!" appear
+5. See "You have access!" appear
 
 No PurchaseKit account or Apple Developer account required - everything runs locally using StoreKit testing and demo mode.
 
@@ -40,4 +40,4 @@ To start fresh and test the purchase flow again:
 
 ## Production setup
 
-When you're ready to use PurchaseKit in production, see the [gem documentation](../gem/README.md) for configuration details.
+When you're ready to use PurchaseKit in production, see the [documentation](https://purchasekit.dev/docs) for details.
