@@ -1,19 +1,19 @@
-# Examples directory
+# Demo directory
 
-This directory contains example applications demonstrating PurchaseKit integration.
+This directory contains demo applications demonstrating PurchaseKit integration.
 
 ## Structure
 
-- `rails/` - Example Rails app with Pay gem integration, authentication, and paywall
+- `rails/` - Demo Rails app with Pay gem integration, authentication, and paywall
 - `ios/` - Demo iOS app using the PurchaseKit package from `/ios`
 
 ## Purpose
 
-These examples serve as:
+These demos serve as:
 1. Development testbeds for the gem
 2. Reference implementations for developers
 3. Documentation through working code
 
-## Future examples
+## Future demos
 
 - `android/` - Android app with Hotwire Native and PurchaseKit bridge component

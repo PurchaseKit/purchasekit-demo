@@ -1,4 +1,4 @@
-# Example Rails app
+# Demo Rails app
 
 Demonstrates PurchaseKit integration with:
 - Pay gem for subscription management
@@ -6,55 +6,39 @@ Demonstrates PurchaseKit integration with:
 - Paywall with plan selection
 - ActionCable for real-time redirect after purchase
 
-## Key files
-
-- `app/views/paywalls/show.html.erb` - Paywall using the builder pattern
-- `app/views/paywalls/_plan_option.html.erb` - Plan option partial with price display
-- `app/controllers/paywalls_controller.rb` - Fetches products, requires authentication
-- `app/channels/application_cable/connection.rb` - WebSocket auth via session cookie
-- `config/initializers/purchasekit.rb` - Gem configuration
-- `config/credentials/development.yml.enc` - API credentials (see below)
-- `bin/test_webhook` - Script to test webhook handling locally
-
-## Configuration
-
-Credentials are stored in `config/credentials/development.yml.enc`:
-
-```yaml
-purchasekit:
-  api_url: http://localhost:3000
-  api_key: sk_G4JJ8JQGR56V3PXV7726XQRQ8GC3CX2M
-  app_id: app_WR48CQHH
-```
-
-These match the SaaS seeds for local development.
-
-## Running locally
-
-Requires both the SaaS and example app running:
+## Quick start
 
 ```bash
-# Terminal 1: Start SaaS on port 3000
-cd saas && bin/rails server
-
-# Terminal 2: Start example app on port 3001
-cd examples/rails && bin/rails server -p 3001
+bin/setup
+bin/rails server -p 3001
 ```
 
-Sign in: `user@example.com` / `password`
+Then run the iOS app in Xcode. Sign in with `user@example.com` / `password`.
+
+## Demo mode
+
+This app uses demo mode - no PurchaseKit account required. Products are defined locally in `config/initializers/purchasekit.rb` and match the iOS app's StoreKit configuration.
+
+## Key files
+
+- `config/initializers/purchasekit.rb` - Demo mode configuration with local products
+- `app/controllers/paywalls_controller.rb` - Fetches products, requires authentication
+- `app/views/paywalls/show.html.erb` - Paywall using the builder pattern
+- `app/views/paywalls/_plan_option.html.erb` - Plan option partial with price display
+- `app/channels/application_cable/connection.rb` - WebSocket auth via session cookie
 
 ## Paywall pattern
 
-Products are fetched from the SaaS in the controller:
+Products are fetched by ID (matching keys in `demo_products`):
 
 ```ruby
 def show
-  @annual = PurchaseKit::Product.find("prod_3VC24F5M")
-  @monthly = PurchaseKit::Product.find("prod_28VWPCQ7")
+  @annual = PurchaseKit::Product.find("annual")
+  @monthly = PurchaseKit::Product.find("monthly")
 end
 ```
 
-The view uses the builder pattern with product objects:
+The view uses the builder pattern:
 
 ```erb
 <%= purchasekit_paywall customer: Current.user.payment_processor do |paywall| %>
@@ -65,18 +49,12 @@ The view uses the builder pattern with product objects:
 <% end %>
 ```
 
-## Testing webhooks
+## Resetting purchases
 
-```bash
-bin/test_webhook created    # Test subscription.created
-bin/test_webhook updated    # Test subscription.updated
-bin/test_webhook canceled   # Test subscription.canceled
-bin/test_webhook expired    # Test subscription.expired
-```
+To test the purchase flow again:
 
-Environment variables:
-- `CUSTOMER_ID` - Override Pay::Customer ID
-- `SUCCESS_PATH` - Override redirect path (default: /paid)
+1. In Xcode: Debug → StoreKit → Manage Transactions → Delete All
+2. Run `bin/rails db:seed:replant` to clear subscriptions and reseed users
 
 ## Architecture notes
 

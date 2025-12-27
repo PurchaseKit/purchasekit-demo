@@ -1,5 +1,5 @@
 {
-  "originHash" : "e043e35d89fc9c175f4169f4aa9709becdfb87b915ef76ee944456cb593c96b1",
+  "originHash" : "127f04e6de4eca6ddcb35b32cb288f683ff7819f7ea9818f3d94404f55dfd199",
   "pins" : [
     {
       "identity" : "hotwire-native-ios",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "595dba37c4918afd0e2d470109bc0c356d6e9afe",
         "version" : "1.2.2"
+      }
+    },
+    {
+      "identity" : "purchasekit-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/purchasekit/purchasekit-ios",
+      "state" : {
+        "revision" : "314263a4fd96b4525ea42d362dbfcca3ab256be3",
+        "version" : "0.1.0"
       }
     }
   ],

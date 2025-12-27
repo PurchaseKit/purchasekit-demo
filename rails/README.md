@@ -1,4 +1,4 @@
-# PurchaseKit Example App
+# PurchaseKit demo
 
 This Rails application demonstrates the PurchaseKit integration for in-app purchases.
 

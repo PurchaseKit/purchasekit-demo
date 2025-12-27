@@ -34,5 +34,8 @@
 /config/*.key
 
 # Ignore key files for decrypting credentials and more.
-/config/credentials/*.key
+# Note: development.key is committed so developers can edit credentials easily.
+/config/credentials/production.key
 
+# Ignore key files for decrypting credentials and more.
+/config/credentials/*.key
