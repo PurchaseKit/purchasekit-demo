@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/purchasekit/purchasekit-ios",
       "state" : {
-        "revision" : "314263a4fd96b4525ea42d362dbfcca3ab256be3",
-        "version" : "0.1.0"
+        "revision" : "c6b242256fd9eae9d1805788c3f4a709bdd78ffb",
+        "version" : "0.1.4"
       }
     }
   ],

@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840CC0552F00DB430029D6DE /* PurchaseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 840CC0542F00DB430029D6DE /* PurchaseKit */; };
 		8427AD2D2EECDC9A000B9951 /* HotwireNative in Frameworks */ = {isa = PBXBuildFile; productRef = 8427AD2C2EECDC9A000B9951 /* HotwireNative */; };
 		84A2C99B2EF4BD8F002DE149 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A2C99A2EF4BD8F002DE149 /* StoreKit.framework */; };
-		84CF6C222EFF2EBD004EDD1D /* PurchaseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 84CF6C212EFF2EBD004EDD1D /* PurchaseKit */; };
 		84PURCHASEKIT001 /* PurchaseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 84PURCHASEKIT002 /* PurchaseKit */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +46,7 @@
 			files = (
 				8427AD2D2EECDC9A000B9951 /* HotwireNative in Frameworks */,
 				84A2C99B2EF4BD8F002DE149 /* StoreKit.framework in Frameworks */,
-				84CF6C222EFF2EBD004EDD1D /* PurchaseKit in Frameworks */,
+				840CC0552F00DB430029D6DE /* PurchaseKit in Frameworks */,
 				84PURCHASEKIT001 /* PurchaseKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,7 +101,7 @@
 			packageProductDependencies = (
 				8427AD2C2EECDC9A000B9951 /* HotwireNative */,
 				84PURCHASEKIT002 /* PurchaseKit */,
-				84CF6C212EFF2EBD004EDD1D /* PurchaseKit */,
+				840CC0542F00DB430029D6DE /* PurchaseKit */,
 			);
 			productName = "PurchaseKit Base";
 			productReference = 8427ACEF2EECDC26000B9951 /* Demo.app */;
@@ -133,7 +133,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				8427AD2B2EECDC9A000B9951 /* XCRemoteSwiftPackageReference "hotwire-native-ios" */,
-				84CF6C202EFF2EBD004EDD1D /* XCRemoteSwiftPackageReference "purchasekit-ios" */,
+				840CC0532F00DB430029D6DE /* XCRemoteSwiftPackageReference "purchasekit-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8427ACF02EECDC26000B9951 /* Products */;
@@ -391,6 +391,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		840CC0532F00DB430029D6DE /* XCRemoteSwiftPackageReference "purchasekit-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/purchasekit/purchasekit-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
 		8427AD2B2EECDC9A000B9951 /* XCRemoteSwiftPackageReference "hotwire-native-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hotwired/hotwire-native-ios";
@@ -399,26 +407,18 @@
 				minimumVersion = 1.2.2;
 			};
 		};
-		84CF6C202EFF2EBD004EDD1D /* XCRemoteSwiftPackageReference "purchasekit-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/purchasekit/purchasekit-ios";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 0.1.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		840CC0542F00DB430029D6DE /* PurchaseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 840CC0532F00DB430029D6DE /* XCRemoteSwiftPackageReference "purchasekit-ios" */;
+			productName = PurchaseKit;
+		};
 		8427AD2C2EECDC9A000B9951 /* HotwireNative */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8427AD2B2EECDC9A000B9951 /* XCRemoteSwiftPackageReference "hotwire-native-ios" */;
 			productName = HotwireNative;
-		};
-		84CF6C212EFF2EBD004EDD1D /* PurchaseKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 84CF6C202EFF2EBD004EDD1D /* XCRemoteSwiftPackageReference "purchasekit-ios" */;
-			productName = PurchaseKit;
 		};
 		84PURCHASEKIT002 /* PurchaseKit */ = {
 			isa = XCSwiftPackageProductDependency;
