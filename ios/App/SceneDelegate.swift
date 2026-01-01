@@ -1,7 +1,7 @@
 import HotwireNative
 import UIKit
 
-let baseUrl = URL(string: "http://localhost:3001")!
+let baseUrl = URL(string: "https://demo.purchasekit.dev")!
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?

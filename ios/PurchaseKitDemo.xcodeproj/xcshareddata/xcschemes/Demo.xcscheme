@@ -51,9 +51,6 @@
             ReferencedContainer = "container:PurchaseKitDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <StoreKitConfigurationFileReference
-         identifier = "../../App/Config/PurchaseKit.storekit">
-      </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
