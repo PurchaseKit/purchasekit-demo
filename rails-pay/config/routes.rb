@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
   resource :dashboard, only: :show
-  resource :paywall, only: :show
+  resource :paywall, only: :show do
+    post :restore, on: :member
+  end
 
   get "free", to: "content#free"
   get "paid", to: "content#paid"

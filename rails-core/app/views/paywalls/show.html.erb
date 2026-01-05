@@ -1,5 +1,7 @@
 <% content_for :title, "Select a Plan" %>
 
+<%= turbo_stream_from "purchasekit_customer_#{Current.user.id}" %>
+
 <div class="container">
   <div class="row">
     <div class="col-md-8 mx-auto text-center">
@@ -33,7 +35,7 @@
         <%= paywall.submit "Subscribe", class: "btn btn-primary btn-lg w-100 rounded-pill mt-3" %>
 
         <div class="text-center mt-3">
-          <%= paywall.restore_link class: "text-muted small" %>
+          <%= button_to "Restore purchases", restore_paywall_path, class: "btn btn-link text-muted small p-0" %>
         </div>
       <% end %>
     </div>

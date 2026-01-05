@@ -60,9 +60,11 @@ def show
 end
 ```
 
-The view uses the builder pattern:
+The view subscribes to Turbo Stream for real-time redirects and uses the builder pattern:
 
 ```erb
+<%= turbo_stream_from "purchasekit_customer_#{Current.user.id}" %>
+
 <%= purchasekit_paywall customer_id: Current.user.id, success_path: paid_path do |paywall| %>
   <%= paywall.plan_option product: @annual, selected: true do %>
     <%= paywall.price %>
@@ -85,5 +87,5 @@ To test the purchase flow again:
 - Uses `Current.user` for request-local user access
 - Authorization via `Authorization` concern (checks `user.subscribed?`)
 - Custom Subscription model with enum status (active, canceled, expired)
-- No ActionCable - relies on Turbo Stream redirect after demo completion
+- ActionCable broadcasts redirect after webhook completes (30-second fallback if not connected)
 - SQLite for simplicity
