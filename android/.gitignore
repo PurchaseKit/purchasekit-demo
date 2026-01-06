@@ -1,0 +1,17 @@
+# Gradle
+.gradle/
+build/
+local.properties
+
+# IDE
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Android
+/captures
+.externalNativeBuild
+.cxx
+app/release

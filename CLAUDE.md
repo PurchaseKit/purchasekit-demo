@@ -9,6 +9,7 @@ This directory contains demo applications demonstrating PurchaseKit integration.
 | `rails-pay/` | Demo Rails app with Pay gem - automatic Pay::Subscription creation |
 | `rails-core/` | Demo Rails app without Pay - custom Subscription model + callbacks |
 | `ios/` | Demo iOS app using the PurchaseKit Swift package from `/ios` |
+| `android/` | Demo Android app using PurchaseKit bridge component with Hotwire Native |
 
 ## Quick start
 
@@ -33,6 +34,15 @@ Both demos run on port 3001 by default.
 ### iOS demo
 
 Open `ios/PurchaseKitDemo.xcodeproj` in Xcode and run on a simulator.
+
+### Android demo
+
+Open `android/` in Android Studio and run on an emulator or device. The app uses Hotwire Native with a PurchaseKit bridge component for Google Play Billing.
+
+**Note:** Android purchases require:
+- A linked Google Play Console account with license testers configured
+- The app published to internal testing track (or use real device for local testing)
+- Service account credentials uploaded to PurchaseKit at `/account/integrations`
 
 ## Test credentials
 
@@ -81,6 +91,17 @@ config.on(:subscription_created) do |event|
 end
 ```
 
-## Future demos
+## Platform differences
 
-- `android/` - Android app with Hotwire Native and PurchaseKit bridge component
+### iOS (Xcode StoreKit)
+
+- Uses Xcode StoreKit Configuration for testing without a real App Store account
+- Clear sandbox/production separation
+- Demo mode supported (completes locally without PurchaseKit SaaS)
+
+### Android (Google Play)
+
+- Requires real Google Play Console account even for testing
+- No separate sandbox environment (uses license testers instead)
+- `testPurchase` flag only appears for configured license tester accounts
+- Service account permissions can take up to 24 hours to propagate after linking in Play Console

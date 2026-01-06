@@ -8,8 +8,8 @@ PurchaseKit.configure do |config|
   if ENV.fetch("DEMO", "1") == "1"
     config.demo_mode = true
     config.demo_products = {
-      "prod_3VC24F5M" => {apple_product_id: "dev.purchasekit.pro.annual"},
-      "prod_28VWPCQ7" => {apple_product_id: "dev.purchasekit.pro.monthly"}
+      "prod_3VC24F5M" => {apple_product_id: "dev.purchasekit.pro.annual", google_product_id: "dev.purchasekit.pro.annual"},
+      "prod_28VWPCQ7" => {apple_product_id: "dev.purchasekit.pro.monthly", google_product_id: "dev.purchasekit.pro.monthly"}
     }
     puts "PurchaseKit: Demo mode enabled"
   else
