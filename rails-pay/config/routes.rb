@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Mount PurchaseKit engine (auto-integrates with Pay when present)
-  mount PurchaseKit::Engine, at: "/purchase_kit"
+  mount PurchaseKit::Engine, at: "/purchasekit"
 
   resource :session, only: [:new, :create, :destroy]
   resource :dashboard, only: :show
