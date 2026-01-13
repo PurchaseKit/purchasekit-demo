@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Mount PurchaseKit engine
-  mount PurchaseKit::Engine, at: "/purchasekit", as: "purchasekit"
+  mount PurchaseKit::Engine, at: "/purchasekit"
 
   resource :session, only: [:new, :create, :destroy]
   resource :dashboard, only: :show

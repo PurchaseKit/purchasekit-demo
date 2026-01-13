@@ -9,7 +9,7 @@ Demo applications demonstrating the [PurchaseKit](https://purchasekit.dev) integ
 ```bash
 cd rails-pay
 bin/setup
-bin/rails server -p 3001
+bin/dev
 ```
 
 ### 2. Run the iOS app
@@ -78,6 +78,50 @@ The Android demo requires a Google Play Console account and an app uploaded to i
 - `rails-core/` - Demo Rails app without Pay gem (custom subscription handling)
 - `ios/` - Demo iOS app using the PurchaseKit Swift package
 - `android/` - Demo Android app using Google Play Billing
+
+## Rails demos comparison
+
+Both demos use the same `purchasekit` gem. The gem auto-detects whether Pay is present.
+
+| Feature | rails-pay | rails-core |
+|---------|-----------|------------|
+| Pay gem | Yes | No |
+| Subscription model | `Pay::Subscription` | Custom `Subscription` |
+| Webhook handling | Automatic | Event callbacks |
+
+**rails-pay**: Pay gem handles subscription records automatically. PurchaseKit creates `Pay::Subscription` from webhooks.
+
+**rails-core**: You handle subscriptions via event callbacks in the initializer:
+
+```ruby
+config.on(:subscription_created) do |event|
+  user = User.find_by(id: event.customer_id)
+  user.subscriptions.create!(store: event.store, status: "active", ...)
+end
+```
+
+## Demo mode vs SaaS mode
+
+By default, the Rails apps run in **demo mode** - purchases complete locally without API calls.
+
+To connect to the local SaaS for end-to-end testing:
+
+```bash
+DEMO=0 bin/dev
+```
+
+This requires the SaaS to be running at `http://localhost:3000` with seeded data.
+
+| Mode | Command | Description |
+|------|---------|-------------|
+| Demo (default) | `bin/dev` | Local purchases, no API calls |
+| SaaS | `DEMO=0 bin/dev` | Connects to local SaaS |
+
+## Requirements
+
+* Ruby 3.2+
+* SQLite
+* Rails 8.1+
 
 ## Test credentials
 
