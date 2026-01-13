@@ -6,8 +6,8 @@ This directory contains demo applications demonstrating PurchaseKit integration.
 
 | Directory | Description |
 |-----------|-------------|
-| `rails-pay/` | Demo Rails app with Pay gem - automatic Pay::Subscription creation |
-| `rails-standalone/` | Demo Rails app without Pay - custom Subscription model + callbacks |
+| `rails/pay/` | Demo Rails app with Pay gem - automatic Pay::Subscription creation |
+| `rails/standalone/` | Demo Rails app without Pay - custom Subscription model + callbacks |
 | `ios/` | Demo iOS app using the PurchaseKit Swift package from `/ios` |
 | `android/` | Demo Android app using PurchaseKit bridge component with Hotwire Native |
 
@@ -18,15 +18,15 @@ This directory contains demo applications demonstrating PurchaseKit integration.
 Uses `purchasekit` gem with Pay gem for automatic Pay::Subscription creation:
 
 ```bash
-cd rails-pay && bin/setup && bin/dev
+cd rails/pay && bin/setup && bin/dev
 ```
 
-### Core gem demo
+### Standalone demo
 
 Uses `purchasekit` gem without Pay - demonstrates custom subscription handling via event callbacks:
 
 ```bash
-cd rails-standalone && bin/setup && bin/dev
+cd rails/standalone && bin/setup && bin/dev
 ```
 
 Both demos run on port 3000 by default.
@@ -64,21 +64,21 @@ These demos serve as:
 
 Both demos use the same `purchasekit` gem. The gem auto-detects whether Pay is present via `defined?(::Pay)`.
 
-| Feature | rails-pay | rails-standalone |
-|---------|----------|-----------|
+| Feature | rails/pay | rails/standalone |
+|---------|-----------|------------------|
 | Gem | `purchasekit` | `purchasekit` |
 | Pay gem | Yes | No |
 | Subscription model | Pay::Subscription | Custom Subscription |
 | Webhook handling | Automatic via Pay | Event callbacks |
 | Redirect after purchase | ActionCable broadcast | Turbo Stream |
 
-### rails-pay approach
+### rails/pay approach
 
 Pay gem is in the Gemfile, so PurchaseKit automatically:
 - Creates Pay::Subscription records from webhooks
 - Broadcasts Turbo Stream redirects via ActionCable
 
-### rails-standalone approach
+### rails/standalone approach
 
 No Pay gem, so the app handles subscriptions via event callbacks:
 
@@ -90,6 +90,17 @@ config.on(:subscription_created) do |event|
   subscription.update!(store: event.store, status: "active", ...)
 end
 ```
+
+## Web paywall modal
+
+The paywall pages show a modal overlay when viewed on web (non-Hotwire Native). This informs visitors that in-app purchases require the native app. Uses Bootstrap's static modal with no JavaScript - just CSS classes.
+
+```erb
+<%# app/views/paywalls/show.html.erb %>
+<%= render "native_app_modal" unless hotwire_native_app? %>
+```
+
+The `hotwire_native_app?` helper detects Hotwire Native apps via User-Agent.
 
 ## Platform differences
 
