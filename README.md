@@ -30,6 +30,9 @@ No PurchaseKit account or Apple Developer account required - everything runs loc
 
 The Android demo requires a Google Play Console account and an app uploaded to internal testing before you can test purchases.
 
+<details>
+<summary>Android setup instructions</summary>
+
 ### Prerequisites
 
 - Android Studio
@@ -59,6 +62,8 @@ The Android demo requires a Google Play Console account and an app uploaded to i
 4. The Google Play billing UI will appear for test purchases
 
 **Note:** Running from Android Studio uses debug signing which doesn't work for Google Play Billing, even with license testers. Always install from Play Store for purchase testing.
+
+</details>
 
 ## Resetting purchases
 
