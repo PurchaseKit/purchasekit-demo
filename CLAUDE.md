@@ -29,7 +29,7 @@ Uses `purchasekit` gem without Pay - demonstrates custom subscription handling v
 cd rails-standalone && bin/setup && bin/dev
 ```
 
-Both demos run on port 3001 by default.
+Both demos run on port 3000 by default.
 
 ### iOS demo
 

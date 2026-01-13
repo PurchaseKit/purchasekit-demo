@@ -17,7 +17,7 @@ Demo Android app demonstrating [PurchaseKit](https://purchasekit.dev) integratio
 ```bash
 cd ../rails-pay
 bin/setup
-bin/rails server -p 3001
+bin/dev
 ```
 
 ### 2. Build and upload to Play Console

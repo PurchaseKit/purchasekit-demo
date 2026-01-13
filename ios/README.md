@@ -16,7 +16,7 @@ No Apple Developer account required - purchases work locally using Xcode StoreKi
 ```bash
 cd ../rails-pay
 bin/setup
-bin/rails server -p 3001
+bin/dev
 ```
 
 ### 2. Run the app
@@ -39,7 +39,7 @@ The app uses Xcode's StoreKit Configuration file (`App/Config/PurchaseKit.storek
 
 ## Local development
 
-The app points to `http://localhost:3001` by default. To change:
+The app points to `http://localhost:3000` by default. To change:
 
 1. Update `baseURL` in `SceneDelegate.swift`
 2. Rebuild and run

@@ -11,7 +11,7 @@ Demonstrates PurchaseKit integration without the Pay gem:
 
 ```bash
 bin/setup
-bin/rails server -p 3001
+bin/dev
 ```
 
 Then run the iOS app in Xcode. Sign in with `user@example.com` / `password`.
