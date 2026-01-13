@@ -7,7 +7,7 @@ This directory contains demo applications demonstrating PurchaseKit integration.
 | Directory | Description |
 |-----------|-------------|
 | `rails-pay/` | Demo Rails app with Pay gem - automatic Pay::Subscription creation |
-| `rails-core/` | Demo Rails app without Pay - custom Subscription model + callbacks |
+| `rails-standalone/` | Demo Rails app without Pay - custom Subscription model + callbacks |
 | `ios/` | Demo iOS app using the PurchaseKit Swift package from `/ios` |
 | `android/` | Demo Android app using PurchaseKit bridge component with Hotwire Native |
 
@@ -26,7 +26,7 @@ cd rails-pay && bin/setup && bin/dev
 Uses `purchasekit` gem without Pay - demonstrates custom subscription handling via event callbacks:
 
 ```bash
-cd rails-core && bin/setup && bin/dev
+cd rails-standalone && bin/setup && bin/dev
 ```
 
 Both demos run on port 3001 by default.
@@ -64,7 +64,7 @@ These demos serve as:
 
 Both demos use the same `purchasekit` gem. The gem auto-detects whether Pay is present via `defined?(::Pay)`.
 
-| Feature | rails-pay | rails-core |
+| Feature | rails-pay | rails-standalone |
 |---------|----------|-----------|
 | Gem | `purchasekit` | `purchasekit` |
 | Pay gem | Yes | No |
@@ -78,7 +78,7 @@ Pay gem is in the Gemfile, so PurchaseKit automatically:
 - Creates Pay::Subscription records from webhooks
 - Broadcasts Turbo Stream redirects via ActionCable
 
-### rails-core approach
+### rails-standalone approach
 
 No Pay gem, so the app handles subscriptions via event callbacks:
 

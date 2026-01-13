@@ -75,7 +75,7 @@ The Android demo requires a Google Play Console account and an app uploaded to i
 ## Directory structure
 
 - `rails-pay/` - Demo Rails app with Pay gem integration
-- `rails-core/` - Demo Rails app without Pay gem (custom subscription handling)
+- `rails-standalone/` - Demo Rails app without Pay gem (custom subscription handling)
 - `ios/` - Demo iOS app using the PurchaseKit Swift package
 - `android/` - Demo Android app using Google Play Billing
 
@@ -83,7 +83,7 @@ The Android demo requires a Google Play Console account and an app uploaded to i
 
 Both demos use the same `purchasekit` gem. The gem auto-detects whether Pay is present.
 
-| Feature | rails-pay | rails-core |
+| Feature | rails-pay | rails-standalone |
 |---------|-----------|------------|
 | Pay gem | Yes | No |
 | Subscription model | `Pay::Subscription` | Custom `Subscription` |
@@ -91,7 +91,7 @@ Both demos use the same `purchasekit` gem. The gem auto-detects whether Pay is p
 
 **rails-pay**: Pay gem handles subscription records automatically. PurchaseKit creates `Pay::Subscription` from webhooks.
 
-**rails-core**: You handle subscriptions via event callbacks in the initializer:
+**rails-standalone**: You handle subscriptions via event callbacks in the initializer:
 
 ```ruby
 config.on(:subscription_created) do |event|
