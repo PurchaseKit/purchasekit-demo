@@ -49,6 +49,9 @@ android {
     }
 }
 
+// Check if local PurchaseKit module is included
+val useLocalPurchaseKit = rootProject.subprojects.any { it.name == "purchasekit" }
+
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -59,5 +62,9 @@ dependencies {
     implementation(libs.hotwire.native.core)
     implementation(libs.hotwire.native.navigation)
 
-    implementation(project(":purchasekit"))
+    if (useLocalPurchaseKit) {
+        implementation(project(":purchasekit"))
+    } else {
+        implementation("com.github.purchasekit:purchasekit-android:0.1.0")
+    }
 }

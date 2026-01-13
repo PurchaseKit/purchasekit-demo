@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DEMO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+
+echo "Switching demo apps to use remote PurchaseKit packages..."
+
+# Remove marker files
+rm -f "$DEMO_DIR/rails/.purchasekit.local"
+rm -f "$DEMO_DIR/android/.purchasekit.local"
+
+echo ""
+echo "Done! Remote packages enabled for Rails and Android."
+echo ""
+echo "Rails: Will use gem from RubyGems (run 'bundle install')"
+echo "Android: Will use package from JitPack"
+echo ""
+echo "iOS: Manual steps required in Xcode:"
+echo "  1. Remove local 'PurchaseKit' from the Project Navigator"
+echo "  2. File → Add Package Dependencies → enter: https://github.com/purchasekit/purchasekit-ios"

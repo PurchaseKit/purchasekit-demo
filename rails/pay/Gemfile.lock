@@ -1,5 +1,5 @@
 PATH
-  remote: ../../gem
+  remote: ../../../gem
   specs:
     purchasekit (0.4.2)
       httparty (~> 0.22)

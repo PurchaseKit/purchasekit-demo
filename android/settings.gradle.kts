@@ -16,10 +16,15 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
 rootProject.name = "PurchaseKit Demo"
 include(":app")
-include(":purchasekit")
-project(":purchasekit").projectDir = file("../../android/purchasekit")
+
+// Use local PurchaseKit module if .purchasekit.local exists
+if (file(".purchasekit.local").exists()) {
+    include(":purchasekit")
+    project(":purchasekit").projectDir = file("../../android/purchasekit")
+}

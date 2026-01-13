@@ -14,7 +14,11 @@ gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[windows jruby]
 
 # PurchaseKit without Pay gem - uses event callbacks for subscriptions
-gem "purchasekit", path: "../../gem"
+if File.exist?("../.purchasekit.local")
+  gem "purchasekit", path: "../../../gem"
+else
+  gem "purchasekit"
+end
 
 group :development do
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"

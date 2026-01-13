@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DEMO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+
+echo "Switching demo apps to use local PurchaseKit packages..."
+
+# Create marker files for Rails and Android
+touch "$DEMO_DIR/rails/.purchasekit.local"
+touch "$DEMO_DIR/android/.purchasekit.local"
+
+echo ""
+echo "Done! Local development mode enabled for Rails and Android."
+echo ""
+echo "Rails: Will use gem from ../../gem (run 'bundle install')"
+echo "Android: Will use module from ../../android/purchasekit"
+echo ""
+echo "iOS: Manual steps required in Xcode:"
+echo "  1. Project → Package Dependencies → select 'purchasekit-ios' → click '-'"
+echo "  2. File → Add Package Dependencies → Add Local → select 'ios/' folder"

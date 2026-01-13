@@ -8,8 +8,8 @@ This directory contains demo applications demonstrating PurchaseKit integration.
 |-----------|-------------|
 | `rails/pay/` | Demo Rails app with Pay gem - automatic Pay::Subscription creation |
 | `rails/standalone/` | Demo Rails app without Pay - custom Subscription model + callbacks |
-| `ios/` | Demo iOS app using the PurchaseKit Swift package from `/ios` |
-| `android/` | Demo Android app using PurchaseKit bridge component with Hotwire Native |
+| `ios/` | Demo iOS app using PurchaseKit Swift package (remote by default) |
+| `android/` | Demo Android app using PurchaseKit from JitPack (remote by default) |
 
 ## Quick start
 
@@ -116,3 +116,46 @@ The `hotwire_native_app?` helper detects Hotwire Native apps via User-Agent.
 - No separate sandbox environment (uses license testers instead)
 - `testPurchase` flag only appears for configured license tester accounts
 - Service account permissions can take up to 24 hours to propagate after linking in Play Console
+
+## Local development (contributors)
+
+By default, demo apps use remote packages (RubyGems, GitHub, JitPack). To develop against local packages:
+
+### Rails and Android
+
+```bash
+# From demo/ directory
+bin/use-local
+cd rails/pay && bundle install
+```
+
+To switch back:
+
+```bash
+bin/use-remote
+cd rails/pay && bundle install
+```
+
+This creates `.purchasekit.local` marker files:
+- Rails: Gemfile checks `../.purchasekit.local`
+- Android: settings.gradle.kts checks `.purchasekit.local`
+
+### iOS (manual)
+
+**To use local package:**
+1. Open the project in Xcode
+2. Project → Package Dependencies → select `purchasekit-ios` → click `-` to remove
+3. File → Add Package Dependencies → click "Add Local..." → select the `ios/` folder
+
+**To use remote package:**
+1. Remove the local `PurchaseKit` package from the Project Navigator (right-click → Delete → Remove Reference)
+2. File → Add Package Dependencies → enter `https://github.com/purchasekit/purchasekit-ios`
+
+## Server URL configuration
+
+Both native apps default to `localhost:3000` for local development. To test against the deployed server (e.g., for webhook testing), swap the commented URLs:
+
+- **iOS**: `demo/ios/App/SceneDelegate.swift`
+- **Android**: `demo/android/app/src/main/java/dev/purchasekit/android/demo/MainActivity.kt`
+
+Android uses `10.0.2.2:3000` which is the emulator's alias for the host machine's localhost.
