@@ -2,6 +2,8 @@
 
 <%= turbo_stream_from dom_id(Current.user.payment_processor) %>
 
+<%= render "native_app_modal" unless hotwire_native_app? %>
+
 <div class="container">
   <div class="row">
     <div class="col-md-8 mx-auto text-center">
