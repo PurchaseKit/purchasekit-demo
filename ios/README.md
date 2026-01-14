@@ -1,6 +1,6 @@
 # PurchaseKit iOS demo
 
-Demo iOS app demonstrating [PurchaseKit](https://purchasekit.dev) integration with Hotwire Native and StoreKit.
+Demo iOS app demonstrating [PurchaseKit](https://purchasekit.com) integration with Hotwire Native and StoreKit.
 
 ## Requirements
 
@@ -70,4 +70,4 @@ For production-like testing with real Apple webhooks:
 3. Configure webhook URL in App Store Connect
 4. Make the Rails server accessible from the internet (ngrok)
 
-See the [documentation](https://purchasekit.dev/docs/ios/testing) for details.
+See the [documentation](https://purchasekit.com/docs/ios/testing) for details.

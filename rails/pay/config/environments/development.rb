@@ -59,5 +59,5 @@ Rails.application.configure do
   # config.generators.apply_rubocop_autocorrect_after_generate!
 
   # Allow Cloudflare tunnel for testing on physical devices and webhooks.
-  config.hosts << "demo.purchasekit.dev"
+  config.hosts << "demo.purchasekit.com"
 end

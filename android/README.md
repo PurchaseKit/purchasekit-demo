@@ -1,6 +1,6 @@
 # PurchaseKit Android demo
 
-Demo Android app demonstrating [PurchaseKit](https://purchasekit.dev) integration with Hotwire Native and Google Play Billing.
+Demo Android app demonstrating [PurchaseKit](https://purchasekit.com) integration with Hotwire Native and Google Play Billing.
 
 ## Requirements
 

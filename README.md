@@ -1,6 +1,6 @@
 # PurchaseKit demo
 
-Demo applications demonstrating the [PurchaseKit](https://purchasekit.dev) integration.
+Demo applications demonstrating the [PurchaseKit](https://purchasekit.com) integration.
 
 ## Quick start
 
@@ -137,4 +137,4 @@ This requires the SaaS to be running at `http://localhost:3000` with seeded data
 
 ## Production setup
 
-When you're ready to use PurchaseKit in production, see the [documentation](https://purchasekit.dev/docs) for details.
+When you're ready to use PurchaseKit in production, see the [documentation](https://purchasekit.com/docs) for details.
